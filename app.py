@@ -7,7 +7,6 @@ app = Flask(__name__, template_folder='./', static_folder='./')
 
 
 def urlToImg(t):
-  res = []
   mapArray = []
   for i in [1629, 1630, 1631, 1632]:
     mapArray.append([])
@@ -16,7 +15,10 @@ def urlToImg(t):
       mapArray[i-1629][j-961].append(str(i) + '_' + str(j))
       mapArray[i-1629][j-961].append('./crawlStatusMap/statusMapImg/full/' + str(hashlib.sha1(to_bytes(
           'http://giaothong.hochiminhcity.gov.vn:8000/Render/RenderHandler.ashx?level=11&x=%s&y=%s&server=192.168.10.12:8008&maps=HTDP_LINKS_ALL&t=%s' % (i, j, t))).hexdigest()))
-  res.append(mapArray)
+  return mapArray
+
+
+def urlToImgD1(t):
   d1MapArray = []
   for i in [26092, 26093, 26094, 26095, 26096, 26097, 26098]:
     d1MapArray.append([])
@@ -25,8 +27,7 @@ def urlToImg(t):
       d1MapArray[i-26092][j-15395].append(str(i) + '_' + str(j))
       d1MapArray[i-26092][j-15395].append('./crawlD1Status/statusMapImg/full/' + str(hashlib.sha1(to_bytes(
           'http://giaothong.hochiminhcity.gov.vn:8000/Render/RenderHandler.ashx?level=15&x=%s&y=%s&server=192.168.10.12:8008&maps=HTDP_LINKS_ALL&t=%s' % (i, j, t))).hexdigest()))
-  res.append(d1MapArray)
-  return res
+  return d1MapArray
 
 
 @app.route("/")
@@ -39,9 +40,15 @@ def updateStatus():
   t = int(datetime.timestamp(datetime.now())*1000)
   subprocess.check_call(['scrapy', 'crawl', 'statusMap',
                          '-a', 't=%s' % t], cwd='./crawlStatusMap')
+  return jsonify(res=urlToImg(t))
+
+
+@app.route('/updateD1Status', methods=['POST'])
+def updateD1Status():
+  t = int(datetime.timestamp(datetime.now())*1000)
   subprocess.check_call(['scrapy', 'crawl', 'statusD1Map',
                          '-a', 't=%s' % t], cwd='./crawlD1Status')
-  return jsonify(res=urlToImg(t))
+  return jsonify(res=urlToImgD1(t))
 
 
 if __name__ == "__main__":

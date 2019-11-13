@@ -15,9 +15,15 @@
   <title>Ho Chi Minh City Traffic Status</title>
 
   <style>
-    #map-container {
+    #body-container {
+      margin-top: 58px;
+    }
+
+    #map-container,
+    #d1-container {
       margin: 3px;
       border: 3px solid black;
+      background-color: #343a40;
     }
 
     #map-container table,
@@ -33,11 +39,17 @@
     }
 
     #d1-container table td img {
-      /* width: 150px; */
+      width: 180px;
     }
 
-    #map-container table td .status {
+    #map-container table td .status,
+    #d1-container table td .status {
       position: absolute;
+    }
+
+    .map-label {
+      color: white;
+      padding-right: 5px;
     }
 
     #countdown {
@@ -85,7 +97,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-dark bg-dark d-flex justify-content-between navbar-fixed-top">
+  <nav class="navbar navbar-dark bg-dark d-flex justify-content-between fixed-top">
     <span class="navbar-brand mb-0 h1">Ho Chi Minh City Traffic Status</span>
     <div id="countdown">
       <div id="countdown-number"></div>
@@ -95,7 +107,8 @@
     </div>
   </nav>
   <div id="body-container">
-    <div id="map-container">
+    <div id="map-container" class="d-flex justify-content-center align-items-center">
+      <h1 class="map-label">City</h1>
       <table>
         <tbody>
           <tr>
@@ -156,122 +169,158 @@
       </table>
     </div>
 
-    <div id="d1-container">
+    <div id="d1-container" class="d-flex justify-content-center align-items-center">
+      <h1 class="map-label">D1</h1>
       <table>
         <tbody>
           <tr>
             <td>
               <img src="./backgroundMap/15_d1/26092_15395.png" alt="">
+              <img src="" alt="" id="26092_15395" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26093_15395.png" alt="">
+              <img src="" alt="" id="26093_15395" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26094_15395.png" alt="">
+              <img src="" alt="" id="26094_15395" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26095_15395.png" alt="">
+              <img src="" alt="" id="26095_15395" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26096_15395.png" alt="">
+              <img src="" alt="" id="26096_15395" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26097_15395.png" alt="">
+              <img src="" alt="" id="26097_15395" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26098_15395.png" alt="">
+              <img src="" alt="" id="26098_15395" class="status">
             </td>
           </tr>
           <tr>
             <td>
               <img src="./backgroundMap/15_d1/26092_15396.png" alt="">
+              <img src="" alt="" id="26092_15396" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26093_15396.png" alt="">
+              <img src="" alt="" id="26093_15396" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26094_15396.png" alt="">
+              <img src="" alt="" id="26094_15396" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26095_15396.png" alt="">
+              <img src="" alt="" id="26095_15396" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26096_15396.png" alt="">
+              <img src="" alt="" id="26096_15396" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26097_15396.png" alt="">
+              <img src="" alt="" id="26097_15396" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26098_15396.png" alt="">
+              <img src="" alt="" id="26098_15396" class="status">
             </td>
           </tr>
           <tr>
             <td>
               <img src="./backgroundMap/15_d1/26092_15397.png" alt="">
+              <img src="" alt="" id="26092_15397" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26093_15397.png" alt="">
+              <img src="" alt="" id="26093_15397" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26094_15397.png" alt="">
+              <img src="" alt="" id="26094_15397" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26095_15397.png" alt="">
+              <img src="" alt="" id="26095_15397" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26096_15397.png" alt="">
+              <img src="" alt="" id="26096_15397" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26097_15397.png" alt="">
+              <img src="" alt="" id="26097_15397" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26098_15397.png" alt="">
+              <img src="" alt="" id="26098_15397" class="status">
             </td>
           </tr>
           <tr>
             <td>
               <img src="./backgroundMap/15_d1/26092_15398.png" alt="">
+              <img src="" alt="" id="26092_15398" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26093_15398.png" alt="">
+              <img src="" alt="" id="26093_15398" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26094_15398.png" alt="">
+              <img src="" alt="" id="26094_15398" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26095_15398.png" alt="">
+              <img src="" alt="" id="26095_15398" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26096_15398.png" alt="">
+              <img src="" alt="" id="26096_15398" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26097_15398.png" alt="">
+              <img src="" alt="" id="26097_15398" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26098_15398.png" alt="">
+              <img src="" alt="" id="26098_15398" class="status">
             </td>
           </tr>
           <tr>
             <td>
               <img src="./backgroundMap/15_d1/26092_15399.png" alt="">
+              <img src="" alt="" id="26092_15399" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26093_15399.png" alt="">
+              <img src="" alt="" id="26093_15399" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26094_15399.png" alt="">
+              <img src="" alt="" id="26094_15399" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26095_15399.png" alt="">
+              <img src="" alt="" id="26095_15399" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26096_15399.png" alt="">
+              <img src="" alt="" id="26096_15399" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26097_15399.png" alt="">
+              <img src="" alt="" id="26097_15399" class="status">
             </td>
             <td>
               <img src="./backgroundMap/15_d1/26098_15399.png" alt="">
+              <img src="" alt="" id="26098_15399" class="status">
             </td>
           </tr>
         </tbody>
@@ -294,8 +343,23 @@
 
         success: function (data) {
           // resdata = JSON.parse(data)
-          console.log('SUCCESS', data)
+          console.log('SUCCESSFUL UPDATED CITY STATUS', data)
           updateStatus(data.res)
+        },
+        error: function (error) {
+          console.log('ERROR', error)
+        }
+      })
+
+      $.ajax({
+        url: `/updateD1Status`,
+        type: "POST",
+        data: '',
+
+        success: function (data) {
+          // resdata = JSON.parse(data)
+          console.log('SUCCESSFUL UPDATED D1 STATUS', data)
+          updateD1Status(data.res)
         },
         error: function (error) {
           console.log('ERROR', error)
@@ -312,8 +376,23 @@
 
           success: function (data) {
             // resdata = JSON.parse(data)
-            console.log('SUCCESS', data)
+            console.log('SUCCESSFUL UPDATED CITY STATUS', data)
             updateStatus(data.res)
+          },
+          error: function (error) {
+            console.log('ERROR', error)
+          }
+        })
+
+        $.ajax({
+          url: `/updateD1Status`,
+          type: "POST",
+          data: '',
+
+          success: function (data) {
+            // resdata = JSON.parse(data)
+            console.log('SUCCESSFUL UPDATED D1 STATUS', data)
+            updateD1Status(data.res)
           },
           error: function (error) {
             console.log('ERROR', error)
@@ -325,11 +404,17 @@
     }, 1000);
 
     function updateStatus(mapArr) {
-      cityMap = mapArr[0]
-      d1Map = mapArr[1]
       for (i = 0; i < 4; i++) {
         for (j = 0; j < 3; j++) {
-          document.getElementById(cityMap[i][j][0]).src = cityMap[i][j][1];
+          document.getElementById(mapArr[i][j][0]).src = mapArr[i][j][1];
+        }
+      }
+    }
+
+    function updateD1Status(mapArr) {
+      for (i = 0; i < 6; i++) {
+        for (j = 0; j < 4; j++) {
+          document.getElementById(mapArr[i][j][0]).src = mapArr[i][j][1];
         }
       }
     }
