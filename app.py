@@ -30,6 +30,18 @@ def urlToImgD1(t):
   return d1MapArray
 
 
+def urlToImgBK(t):
+  bkMapArray = []
+  for i in [52182, 52183, 52184, 52185, 52186]:
+    bkMapArray.append([])
+    for j in [30793, 30794, 30795, 30796]:
+      bkMapArray[i-52182].append([])
+      bkMapArray[i-52182][j-30793].append(str(i) + '_' + str(j))
+      bkMapArray[i-52182][j-30793].append('./crawlBKStatus/statusMapImg/full/' + str(hashlib.sha1(to_bytes(
+          'http://giaothong.hochiminhcity.gov.vn:8000/Render/RenderHandler.ashx?level=16&x=%s&y=%s&server=192.168.10.12:8008&maps=HTDP_LINKS_ALL&t=%s' % (i, j, t))).hexdigest()))
+  return bkMapArray
+
+
 @app.route("/")
 def main():
   return render_template('index.html')
@@ -37,7 +49,7 @@ def main():
 
 @app.route('/updateStatus', methods=['POST'])
 def updateStatus():
-  t = int(datetime.timestamp(datetime.now())*1000)
+  t = int(datetime.timestamp(datetime.now()))*1000
   subprocess.check_call(['scrapy', 'crawl', 'statusMap',
                          '-a', 't=%s' % t], cwd='./crawlStatusMap')
   return jsonify(res=urlToImg(t))
@@ -45,10 +57,18 @@ def updateStatus():
 
 @app.route('/updateD1Status', methods=['POST'])
 def updateD1Status():
-  t = int(datetime.timestamp(datetime.now())*1000)
+  t = int(datetime.timestamp(datetime.now()))*1000
   subprocess.check_call(['scrapy', 'crawl', 'statusD1Map',
                          '-a', 't=%s' % t], cwd='./crawlD1Status')
   return jsonify(res=urlToImgD1(t))
+
+
+@app.route('/updateBKStatus', methods=['POST'])
+def updateBKStatus():
+  t = int(datetime.timestamp(datetime.now()))*1000
+  subprocess.check_call(['scrapy', 'crawl', 'statusBKMap',
+                         '-a', 't=%s' % t], cwd='./crawlBKStatus')
+  return jsonify(res=urlToImgBK(t))
 
 
 if __name__ == "__main__":

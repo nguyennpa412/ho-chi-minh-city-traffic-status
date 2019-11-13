@@ -20,30 +20,40 @@
     }
 
     #map-container,
-    #d1-container {
+    #d1-container,
+    #bk-container {
       margin: 3px;
       border: 3px solid black;
       background-color: #343a40;
     }
 
     #map-container table,
-    #d1-container table {
+    #d1-container table,
+    #bk-container table {
       border-spacing: 0;
     }
 
     #map-container table td,
-    #d1-container table td {
+    #d1-container table td,
+    #bk-container table td {
       margin: 0;
       padding: 0;
       display: inline-flex;
     }
 
-    #d1-container table td img {
-      width: 180px;
+    @media only screen and (max-width: 1366px) {
+      #d1-container table td img {
+        width: 180px;
+      }
+
+      #bk-container table td img {
+        width: 200px;
+      }
     }
 
     #map-container table td .status,
-    #d1-container table td .status {
+    #d1-container table td .status,
+    #bk-container table td .status {
       position: absolute;
     }
 
@@ -326,6 +336,102 @@
         </tbody>
       </table>
     </div>
+
+    <div id="bk-container" class="d-flex justify-content-center align-items-center">
+      <h1 class="map-label">BK</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <img src="./backgroundMap/16_bk/52182_30793.png" alt="">
+              <img src="" alt="" id="52182_30793" class="status">
+            </td>
+            <td>
+              <img src="./backgroundMap/16_bk/52183_30793.png" alt="">
+              <img src="" alt="" id="52183_30793" class="status">
+            </td>
+            <td>
+              <img src="./backgroundMap/16_bk/52184_30793.png" alt="">
+              <img src="" alt="" id="52184_30793" class="status">
+            </td>
+            <td>
+              <img src="./backgroundMap/16_bk/52185_30793.png" alt="">
+              <img src="" alt="" id="52185_30793" class="status">
+            </td>
+            <td>
+              <img src="./backgroundMap/16_bk/52186_30793.png" alt="">
+              <img src="" alt="" id="52186_30793" class="status">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src="./backgroundMap/16_bk/52182_30794.png" alt="">
+              <img src="" alt="" id="52182_30794" class="status">
+            </td>
+            <td>
+              <img src="./backgroundMap/16_bk/52183_30794.png" alt="">
+              <img src="" alt="" id="52183_30794" class="status">
+            </td>
+            <td>
+              <img src="./backgroundMap/16_bk/52184_30794.png" alt="">
+              <img src="" alt="" id="52184_30794" class="status">
+            </td>
+            <td>
+              <img src="./backgroundMap/16_bk/52185_30794.png" alt="">
+              <img src="" alt="" id="52185_30794" class="status">
+            </td>
+            <td>
+              <img src="./backgroundMap/16_bk/52186_30794.png" alt="">
+              <img src="" alt="" id="52186_30794" class="status">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src="./backgroundMap/16_bk/52182_30795.png" alt="">
+              <img src="" alt="" id="52182_30795" class="status">
+            </td>
+            <td>
+              <img src="./backgroundMap/16_bk/52183_30795.png" alt="">
+              <img src="" alt="" id="52183_30795" class="status">
+            </td>
+            <td>
+              <img src="./backgroundMap/16_bk/52184_30795.png" alt="">
+              <img src="" alt="" id="52184_30795" class="status">
+            </td>
+            <td>
+              <img src="./backgroundMap/16_bk/52185_30795.png" alt="">
+              <img src="" alt="" id="52185_30795" class="status">
+            </td>
+            <td>
+              <img src="./backgroundMap/16_bk/52186_30795.png" alt="">
+              <img src="" alt="" id="52186_30795" class="status">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src="./backgroundMap/16_bk/52182_30796.png" alt="">
+              <img src="" alt="" id="52182_30796" class="status">
+            </td>
+            <td>
+              <img src="./backgroundMap/16_bk/52183_30796.png" alt="">
+              <img src="" alt="" id="52183_30796" class="status">
+            </td>
+            <td>
+              <img src="./backgroundMap/16_bk/52184_30796.png" alt="">
+              <img src="" alt="" id="52184_30796" class="status">
+            </td>
+            <td>
+              <img src="./backgroundMap/16_bk/52185_30796.png" alt="">
+              <img src="" alt="" id="52185_30796" class="status">
+            </td>
+            <td>
+              <img src="./backgroundMap/16_bk/52186_30796.png" alt="">
+              <img src="" alt="" id="52186_30796" class="status">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <script>
@@ -365,6 +471,21 @@
           console.log('ERROR', error)
         }
       })
+
+      $.ajax({
+        url: `/updateBKStatus`,
+        type: "POST",
+        data: '',
+
+        success: function (data) {
+          // resdata = JSON.parse(data)
+          console.log('SUCCESSFUL UPDATED BK STATUS', data)
+          updateBKStatus(data.res)
+        },
+        error: function (error) {
+          console.log('ERROR', error)
+        }
+      })
     }, 1000)
 
     setInterval(function () {
@@ -398,6 +519,21 @@
             console.log('ERROR', error)
           }
         })
+
+        $.ajax({
+          url: `/updateBKStatus`,
+          type: "POST",
+          data: '',
+
+          success: function (data) {
+            // resdata = JSON.parse(data)
+            console.log('SUCCESSFUL UPDATED BK STATUS', data)
+            updateBKStatus(data.res)
+          },
+          error: function (error) {
+            console.log('ERROR', error)
+          }
+        })
       }
       countdown = --countdown <= 0 ? 30 : countdown;
       countdownNumberEl.textContent = countdown;
@@ -406,15 +542,29 @@
     function updateStatus(mapArr) {
       for (i = 0; i < 4; i++) {
         for (j = 0; j < 3; j++) {
+          $(`#${mapArr[i][j][0]}`).fadeOut();
           document.getElementById(mapArr[i][j][0]).src = mapArr[i][j][1];
+          $(`#${mapArr[i][j][0]}`).fadeIn();
         }
       }
     }
 
     function updateD1Status(mapArr) {
-      for (i = 0; i < 6; i++) {
-        for (j = 0; j < 4; j++) {
+      for (i = 0; i < 7; i++) {
+        for (j = 0; j < 5; j++) {
+          $(`#${mapArr[i][j][0]}`).fadeOut();
           document.getElementById(mapArr[i][j][0]).src = mapArr[i][j][1];
+          $(`#${mapArr[i][j][0]}`).fadeIn();
+        }
+      }
+    }
+
+    function updateBKStatus(mapArr) {
+      for (i = 0; i < 5; i++) {
+        for (j = 0; j < 4; j++) {
+          $(`#${mapArr[i][j][0]}`).fadeOut();
+          document.getElementById(mapArr[i][j][0]).src = mapArr[i][j][1];
+          $(`#${mapArr[i][j][0]}`).fadeIn();
         }
       }
     }
