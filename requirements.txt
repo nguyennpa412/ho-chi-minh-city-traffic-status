@@ -20,7 +20,7 @@ lxml==4.4.1
 MarkupSafe==1.1.1
 mccabe==0.6.1
 parsel==1.5.2
-Pillow==6.2.1
+Pillow==8.2.0
 pkg-resources==0.0.0
 Protego==0.1.15
 pyasn1==0.4.7
